@@ -2,7 +2,15 @@ var synth = window.speechSynthesis;
 
 var inputForm = document.querySelector('form');
 var inputTxt = document.querySelector('.txt');
-var voiceSelect = document.querySelector('select');
+// var voiceSelect = document.querySelector('select');
+// var voiceSelect = document.querySelectorAll('select');
+// var voiceSelect = document.querySelector('select#src_lang_option');
+// var voiceSelect = document.querySelector('select#tgt_lang_option');
+var voiceSelect = document.querySelectorAll('select#src_lang_option, select#tgt_lang_option');
+// var voiceSelect = document.querySelectorAll('#src_lang_option #tgt_lang_option');
+
+console.log(voiceSelect.length);
+console.log(voiceSelect);
 
 var pitch = document.querySelector('#pitch');
 var pitchValue = document.querySelector('.pitch-value');
@@ -18,21 +26,23 @@ function populateVoiceList() {
       else if ( aname == bname ) return 0;
       else return +1;
   });
-  var selectedIndex = voiceSelect.selectedIndex < 0 ? 0 : voiceSelect.selectedIndex;
-  voiceSelect.innerHTML = '';
-  for(i = 0; i < voices.length ; i++) {
-    var option = document.createElement('option');
-    option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+  for (var j = 0; j < voiceSelect.length; j++) {
+    var selectedIndex = voiceSelect[j].selectedIndex < 0 ? 0 : voiceSelect[j].selectedIndex;
+    voiceSelect[j].innerHTML = '';
+    for(i = 0; i < voices.length ; i++) {
+      var option = document.createElement('option');
+      option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
     
-    if(voices[i].default) {
-      option.textContent += ' -- DEFAULT';
-    }
+      if(voices[i].default) {
+        option.textContent += ' -- DEFAULT';
+      }
 
-    option.setAttribute('data-lang', voices[i].lang);
-    option.setAttribute('data-name', voices[i].name);
-    voiceSelect.appendChild(option);
+      option.setAttribute('data-lang', voices[i].lang);
+      option.setAttribute('data-name', voices[i].name);
+      voiceSelect[j].appendChild(option);
+    }
+    voiceSelect[j].selectedIndex = selectedIndex;
   }
-  voiceSelect.selectedIndex = selectedIndex;
 }
 
 populateVoiceList();
