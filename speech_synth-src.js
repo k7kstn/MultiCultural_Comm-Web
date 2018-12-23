@@ -49,6 +49,8 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
+/***********************************************
+
 function speak(){
     if (synthSrc.speaking) {
         console.error('speechSynthesis.speaking');
@@ -93,3 +95,6 @@ rateSrc.onchange = function() {
 voiceSelectSrc.onchange = function(){
   speak();
 }
+
+***********************************************/
+
