@@ -1,7 +1,10 @@
 var synth = window.speechSynthesis;
 
-var inputForm = document.querySelector('form');
-var inputTxt = document.querySelector('.txt');
+// var inputForm = document.querySelector('form');
+var inputForm = document.querySelector('form#form-tgt');
+// var inputForm = document.querySelectorAll('form');
+// var inputTxt = document.querySelector('.txt');
+var inputTxt = document.querySelector('.txt-tgt');
 // var voiceSelect = document.querySelector('select');
 // var voiceSelect = document.querySelectorAll('select');
 // var voiceSelect = document.querySelector('select#src_lang_option');
@@ -9,13 +12,17 @@ var inputTxt = document.querySelector('.txt');
 var voiceSelect = document.querySelectorAll('select#src_lang_option, select#tgt_lang_option');
 // var voiceSelect = document.querySelectorAll('#src_lang_option #tgt_lang_option');
 
-console.log(voiceSelect.length);
-console.log(voiceSelect);
+// console.log(voiceSelect.length);
+// console.log(voiceSelect);
 
-var pitch = document.querySelector('#pitch');
-var pitchValue = document.querySelector('.pitch-value');
-var rate = document.querySelector('#rate');
-var rateValue = document.querySelector('.rate-value');
+// var pitch = document.querySelector('#pitch');
+var pitch = document.querySelector('#pitch-tgt');
+// var pitchValue = document.querySelector('.pitch-value');
+var pitchValue = document.querySelector('.pitch-value-tgt');
+// var rate = document.querySelector('#rate');
+var rate = document.querySelector('#rate-tgt');
+// var rateValue = document.querySelector('.rate-value');
+var rateValue = document.querySelector('.rate-value-tgt');
 
 var voices = [];
 
