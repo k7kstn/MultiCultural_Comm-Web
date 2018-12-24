@@ -4,7 +4,7 @@
 ************************************/
 
 const xhr = new XMLHttpRequest();
-const callbackFuncName = 'translateResponse';  // for Cross-Site access JSONP
+//// const callbackFuncName = 'translateResponse';  // for Cross-Site access JSONP
 
 var transSrc = document.querySelector('textarea.txt-src');
 transSrc.addEventListener('change', makeReqXHR);
@@ -25,8 +25,8 @@ function makeReqXHR() {
   //  so try to get done with JSONP. 
   **************************************/
   // Generate Script tag
-  let scriptSeg = document.createElement('sctipt');
-  scriptSeg.type = 'text/javascript';
+  //// let scriptSeg = document.createElement('sctipt');
+  //// scriptSeg.type = 'text/javascript';
 
   // Set Access target
   // AJAX Google Translate API server base url set.
@@ -45,10 +45,10 @@ function makeReqXHR() {
 
   console.log( xhrUrl );
 
-  scriptSeg.src = xhrUrl;
+  //// scriptSeg.src = xhrUrl;
 
   // Generate this Script tag to HTML
-  document.body.appendChild(scriptSeg);
+  //// document.body.appendChild(scriptSeg);
 
   /**************************************
   // Prepare  AJAX access
