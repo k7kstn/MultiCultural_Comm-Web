@@ -2,7 +2,7 @@ var synth = window.speechSynthesis;
 
 // var inputForm = document.querySelector('form');
 var inputForm = document.querySelector('form#form-tgt');
-// var inputForm = document.querySelectorAll('form');
+// var inputForm = document.querySelector('#form-tgt');
 // var inputTxt = document.querySelector('.txt');
 var inputTxt = document.querySelector('.txt-tgt');
 // var voiceSelect = document.querySelector('select');
@@ -12,6 +12,7 @@ var inputTxt = document.querySelector('.txt-tgt');
 var voiceSelect = document.querySelectorAll('select#src_lang_option, select#tgt_lang_option');
 // var voiceSelect = document.querySelectorAll('#src_lang_option #tgt_lang_option');
 
+// console.log(inputForm);
 // console.log(voiceSelect.length);
 // console.log(voiceSelect);
 
@@ -70,7 +71,8 @@ function speak(){
     utterThis.onerror = function (event) {
         console.error('SpeechSynthesisUtterance.onerror');
     }
-    var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    // var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
+    var selectedOption = voiceSelect[1].selectedOptions[0].getAttribute('data-name');
     for(i = 0; i < voices.length ; i++) {
       if(voices[i].name === selectedOption) {
         utterThis.voice = voices[i];
