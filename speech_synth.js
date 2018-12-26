@@ -47,14 +47,14 @@ function populateVoiceList(responseData) {
       else if ( aname == bname ) return 0;
       else return +1;
   });
-  for (j = 0; j < voiceSelect.length; j++) {
+  for (let j = 0; j < voiceSelect.length; j++) {
 
     var selectedIndex = voiceSelect[j].selectedIndex < 0 ? 0 : voiceSelect[j].selectedIndex;
     voiceSelect[j].innerHTML = '';
 
-    for(i = 0; i < voices.length ; i++) {
+    for(let i = 0; i < voices.length ; i++) {
 
-      for(k = 0; k < csvGoogleLangArray.length ; k++) {
+      for(let k = 0; k < csvGoogleLangArray.length ; k++) {
 
         // timestamp = new Date();
         // console.log('within k loop call ' + timestamp);
@@ -62,7 +62,8 @@ function populateVoiceList(responseData) {
         // console.log('within  k loop : csvGoogleLangArray : ' + csvGoogleLangArray[k][1]);
         // console.log('within  k loop : voices.length : ' + voices.length);
 
-        if ( csvGoogleLangArray[k][1].toLowerCase() === voices[i].lang.substr(0, csvGoogleLangArray[k][1].length).replace('_', '-').toLowerCase() ) {
+        // if ( csvGoogleLangArray[k][1].toLowerCase() === voices[i].lang.substr(0, csvGoogleLangArray[k][1].length).replace('_', '-').toLowerCase() ) {
+        if ( csvGoogleLangArray[k][1].toLowerCase() == voices[i].lang.substr(0, csvGoogleLangArray[k][1].length).replace('_', '-').toLowerCase() ) {
 
           googleLangCode = csvGoogleLangArray[k][1];
           // textGoogleTransAvail = ' [ Avail ] ' ;
@@ -110,13 +111,13 @@ function speak(){
     var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
     utterThis.onend = function (event) {
         console.log('SpeechSynthesisUtterance.onend');
-    }
+    };
     utterThis.onerror = function (event) {
         console.error('SpeechSynthesisUtterance.onerror');
-    }
+    };
     // var selectedOption = voiceSelect.selectedOptions[0].getAttribute('data-name');
     var selectedOption = voiceSelect[1].selectedOptions[0].getAttribute('data-name');
-    for(i = 0; i < voices.length ; i++) {
+    for(let i = 0; i < voices.length ; i++) {
       if(voices[i].name === selectedOption) {
         utterThis.voice = voices[i];
       }
@@ -133,16 +134,16 @@ inputForm.onsubmit = function(event) {
   speak();
 
   inputTxt.blur();
-}
+};
 
 pitch.onchange = function() {
   pitchValue.textContent = pitch.value;
-}
+};
 
 rate.onchange = function() {
   rateValue.textContent = rate.value;
-}
+};
 
 voiceSelect.onchange = function(){
   speak();
-}
+};

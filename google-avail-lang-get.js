@@ -6,7 +6,7 @@
 //  https://cloud.google.com/translate/docs/languages
 *****************************************/
 
-var csvGoogleLangArray = new Array();
+var csvGoogleLangArray = [];
 
 function getCSVFileXHR(url, callback) {
 // function getCSVFileXHR(url) {
@@ -18,7 +18,7 @@ function getCSVFileXHR(url, callback) {
         callback(xhr.responseText);
         // return xhr.responseText;
       }
-    }
+    };
  
     // xhr.open('GET', "google-translate-avail-lang.csv", true);
     xhr.open('GET', url, true);
@@ -49,6 +49,10 @@ function createXMLHttpRequest() {
 *************************************************/
 // function parseCSV2(text, delim) {
 function createGoogleLangArray(text, delim) {
+ // console.log(text instanceof Array);
+ // console.log(Array.isArray( text )) ;
+ // console.log(typeof text);
+ // console.log(text);
  if (!delim) delim = ',';
  var tokenizer = new RegExp(delim + '|\r?\n|[^' + delim + '"\r\n][^' + delim + '\r\n]*|"(?:[^"]|"")*"', 'g');
 
@@ -59,17 +63,20 @@ function createGoogleLangArray(text, delim) {
     data[record][++field] = '';
     break;
    case '\n': case '\r\n':
+//   case '\n': 
+//   case '\r\n':
     data[++record] = [''];
     field = 0;
     break;
    default:
     data[record][field] = (token.charAt(0) != '"') ? token : token.slice(1, -1).replace(qq, '"');
   }
+
  });
 
  // let timestamp = new Date();
  // console.log('func createGoogleLangArray: ' + timestamp); 
- // console.log(data);
+ //  console.log(data);
 
  return data;
 }

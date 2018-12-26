@@ -15,7 +15,7 @@ transSrc.addEventListener('change', makeReqXHR);
 function makeReqXHR() {
 
   if ( !xhr ) {
-    document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, failed to activate Translation. \n すみません、翻訳処理が開始できませんでした。'
+    document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, failed to activate Translation. \n すみません、翻訳処理が開始できませんでした。';
     return false;
   }
 
@@ -70,8 +70,8 @@ function translateResponse() {
       // response = JSON.parse(dataJSONP);
       document.querySelector('textarea.txt-tgt').innerHTML = xhr.responseText;
     } else {
-      document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, no Translation response aquired. \n すみません、翻訳システムの応答を得られませんでした。'
+      document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, no Translation response aquired. \n すみません、翻訳システムの応答を得られませんでした。';
     }
   }
-};
+}
 
