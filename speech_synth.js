@@ -36,10 +36,10 @@ function populateVoiceList(responseData) {
   // let csvGoogleLangArray = [];
   csvGoogleLangArray = createGoogleLangArray(responseData);
 
-  let timestamp = new Date();
-  console.log('func populateVoiceList google-avail-lang-get.js call end' + timestamp);
-  console.log('below: call from populateVocieList');
-  console.log(csvGoogleLangArray);
+  // let timestamp = new Date();
+  // console.log('func populateVoiceList google-avail-lang-get.js call end' + timestamp);
+  // console.log('below: call from populateVocieList');
+  // console.log(csvGoogleLangArray);
 
   voices = synth.getVoices().sort(function (a, b) {
       const aname = a.name.toUpperCase(), bname = b.name.toUpperCase();
@@ -65,7 +65,7 @@ function populateVoiceList(responseData) {
         if ( csvGoogleLangArray[k][1].toLowerCase() === voices[i].lang.substr(0, csvGoogleLangArray[k][1].length).replace('_', '-').toLowerCase() ) {
 
           googleLangCode = csvGoogleLangArray[k][1];
-          textGoogleTransAvail = ' [ Avail ] ' ;
+          // textGoogleTransAvail = ' [ Avail ] ' ;
           // textGoogleTransAvail = ' [Avail : ' + googleLangCode + ' ] ' ;
 
         // } else {

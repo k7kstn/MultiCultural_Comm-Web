@@ -67,9 +67,9 @@ function createGoogleLangArray(text, delim) {
   }
  });
 
- let timestamp = new Date();
- console.log('func createGoogleLangArray: ' + timestamp); 
- console.log(data);
+ // let timestamp = new Date();
+ // console.log('func createGoogleLangArray: ' + timestamp); 
+ // console.log(data);
 
  return data;
 }
