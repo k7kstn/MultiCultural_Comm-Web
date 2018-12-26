@@ -76,8 +76,8 @@ function populateVoiceList(responseData) {
 
         // var option = document.createElement('option');
         option = document.createElement('option');
-        // option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
-        option.textContent = voices[i].name + ' (' + voices[i].lang + ')' + textGoogleTransAvail;
+        option.textContent = voices[i].name + ' (' + voices[i].lang + ')';
+        // option.textContent = voices[i].name + ' (' + voices[i].lang + ')' + textGoogleTransAvail;
     
         if(voices[i].default) {
           option.textContent += ' -- DEFAULT';
