@@ -28,6 +28,9 @@ var rateValue = document.querySelector('.rate-value-tgt');
 var voices = [];
 
 function populateVoiceList(responseData) {
+  if(typeof speechSynthesis === 'undefined') {
+    return;
+  }
 
   let textGoogleTransAvail;
   let googleLangCode;
@@ -98,8 +101,21 @@ function populateVoiceList(responseData) {
 // populateVoiceList();
 getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
 // populateVoiceList( getCSVFileXHR('google-translate-avail-lang.csv') );
-if (speechSynthesis.onvoiceschanged !== undefined) {
-  speechSynthesis.onvoiceschanged = populateVoiceList;
+/************************************************ 
+//  below: for Chrome browser 
+// 
+//  reference for why : 
+//    https://hacks.mozilla.org/2016/01/firefox-and-the-web-speech-api/
+************************************************/
+// if (speechSynthesis.onvoiceschanged !== undefined) {
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+  // speechSynthesis.onvoiceschanged = populateVoiceList;
+  // speechSynthesis.onvoiceschanged = getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
+
+  setTimeout(function() {
+    // speechSynthesis.onvoiceschanged = populateVoiceList;
+    speechSynthesis.onvoiceschanged = getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
+  }, 1);
 }
 
 function speak(){
