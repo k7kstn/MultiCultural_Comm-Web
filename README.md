@@ -7,7 +7,7 @@ One form of try out with Web Speech API.
 
 ---
 
-#Table of Contents
+# Table of Contents
 
 - ["Multi-Cultural Communicator"](#multi-cultural-communicator)
   - [About this application](#about-this-application)
