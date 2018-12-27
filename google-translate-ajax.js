@@ -2,6 +2,32 @@
 //  Accessing Google Translate API by AJAX 
 //    to Google App Script env.
 ************************************/
+ 
+/**************************************
+// selected Lang Parameter set 
+//         for Google Translate API
+**************************************/
+// function getSelectLabel(idname){
+function getSelectGoogleLangCode(idname){
+  var obj = document.getElementById(idname);
+  var idx = obj.selectedIndex;       //インデックス番号を取得
+  // var val = obj.options[idx].value;  //value値を取得
+  // var txt  = obj.options[idx].text;  //ラベルを取得
+  var langCode = obj.options[idx].getAttribute('data-googlelangcode');
+
+  // console.log('obj: ' + obj);
+  // console.log('idx: ' + idx);
+  // console.log('value: ' + val);
+  // console.log('label text: ' + txt);
+  // console.log('data-lang: ' + obj.dataset['lang']);
+  // console.log('data-name: ' + obj.dataset.name);
+  // console.log('data-googlelangcode: ' + obj.dataset.googlelangcode);
+  // console.log('data-googlelangcode: ' + langCode);
+
+  return langCode;
+
+}
+ 
 
 const xhr = new XMLHttpRequest();
 //// const callbackFuncName = 'translateResponse';  // for Cross-Site access JSONP
@@ -31,12 +57,13 @@ function makeReqXHR() {
   // Set Access target
   // AJAX Google Translate API server base url set.
   let xhrUrl = 'https://script.google.com/macros/s/AKfycbzauHwWj8rb9xs2BgSFhbMRsC_3C5XLYBRpLafUxBG8V7_MfDM/exec?';
-  
+
   // Set URL http GET params
   let textData = transSrc.value;
-  let langSrcCode = 'ja' ;
-  let langTgtCode = 'de' ;
-  // let langTgtCode = 'en' ;
+  // let langSrcCode = 'ja' ;
+  let langSrcCode = getSelectGoogleLangCode('src_lang_option') ;
+  // let langTgtCode = 'de' ;
+  let langTgtCode = getSelectGoogleLangCode('tgt_lang_option') ;
 
   // Set final access URL combined with GET params
   //   with Cross-Site access JSONP ready form
