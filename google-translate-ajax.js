@@ -97,7 +97,7 @@ function translateResponse() {
       // response = JSON.parse(dataJSONP);
       document.querySelector('textarea.txt-tgt').innerHTML = xhr.responseText;
     } else {
-      document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, no Translation response aquired. \n すみません、翻訳システムの応答を得られませんでした。';
+      document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, no Translation response aquired. \n すみません、翻訳システムの応答を得られませんでした。\n\n Also, please make sure that you have chosen different languages for "Select Your Language" and "Select Language to translate to".\n また、「あなたの言語」と「翻訳したい言語」で異なる２つの言語が選択されていることを今一度お確かめください。';
     }
   }
 }
