@@ -14,15 +14,35 @@
 </head>
 
 <body>
-  <h1>Multi Cultural Communicator</h1>
-  <h1>多文化交流促進「器」</h1>
+<div class="app-header">
+  <h1>"Multi-Cultural Communicator"</h1>
+  <h3>〜 Accelerate Multi-Cultural Communication ! 〜</h3>
+   <hr>
+   <div>"We should <b>think freely</b> and <b>Everyone is different</b>." - <b>Roger Taylor</b> (drums, vocals - <b>Queen</b>)</div>
+   <div>"I'd like to <b>build bridges and not walls</b>." - <b>Brian May</b> (guitar, vocals - <b>Queen</b>)</div>
+   <hr>
+  <h1>「多文化交流促進の器（うつわ）」</h1>
+   <hr>
+   <h3>〜 文化の壁は乗り越えて、橋を築きましょう。言葉から 〜</h3>
+   <div>音楽バンド Queen の Roger Taylor，Brian May の言葉 ↑ を胸に。</div>
+   <hr>
+</div>
 
-  <p>Enter some text in the input below and press return  or the "play" button to hear it. change voices using the dropdown menu.</p>
+<p>
+<ol>
+  <li> <b>Language selection:</b>  Choose from <b>'Select Your Language'</b> and <b>'Select Language to translate to'</b><br><b>言語の選択：</b> <b>「あなたの言語」</b>および<b>「翻訳したい言語」</b>を選んで下さい。<br><br><b style="color:red;">※</b> If the list is blanc, please try reloading your browser. <br>　 リストが空の時はブラウザの再読込をお試しください。</li><br>
+  <li> Enter some text in the 1st input below<br>１番目の入力欄に何かコメントを入力ください。</li><br>
+  <li> Then, click or touch somewhere else on the page. Wait for some moments and translation should be done.<br>その後、入力欄の外、ページのどこかをクリックもしくはタッチします。数秒待てば翻訳完了見込み。</li><br>
+  <li> Press the "play" button to hear the translated text.<br>翻訳された内容読み上げは 「再生」ボタンを押してください。</li><br>
+  <!-- <li> Change voices (languages) using the dropdown menu ('Select Language to translate to'). <br>音声（言語）の変更はドロップダウンメニュー（「翻訳したい言語」）から行えます。</li> -->
+</ol>
+</p>
     
   <form id="form-src">
     <hr>
 
-    <label for="src_lang">Select Your Language:  </label>
+    <label for="src_lang"><b>あなたの言語<br>Select Your Language:  </b></label>
+    <div id="sys_msg_show-src"></div>
     <select id="src_lang_option">
 
     </select>
@@ -30,7 +50,7 @@
     <br>
     <br>
 
-    <textarea class="txt-src" rows="10" cols="20" placeholder="Input your message here."></textarea>
+    <textarea class="txt-src" style="width:100%;" rows="10" placeholder="Input your message here. / メッセージをこちらに入力してください。"></textarea>
 
     <br>
 
@@ -57,7 +77,8 @@
     <hr>
 
   <form id="form-tgt">
-    <label for="tgt_lang">Select Language to translate to:  </label>
+    <label for="tgt_lang"><b>翻訳したい言語<br>Select Language to translate to:  </b></label>
+    <div id="sys_msg_show-tgt"></div>
     <select id="tgt_lang_option">
 
     </select>
@@ -65,23 +86,23 @@
     <br>
     <br>
 
-    <textarea class="txt-tgt" rows="10" cols="20" placeholder="Input your message here."></textarea>
+    <textarea class="txt-tgt" style="width:100%;" rows="10"  placeholder="Please wait a moment until your message to be translated here. (You can also modify it afterwards.) / あなたのメッセージがこちらに翻訳されるまで少々お待ちください。(その後に修正・編集も出来ます)"></textarea>
 
     <br>
 
     <div class="controls-tgt">
-      <button id="play-tgt" type="submit">Play</button>
+      <button id="play-tgt" type="submit">Play 再生</button>
     </div>
 
     <br>
 
     <div>
-      <label for="rate-tgt">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate-tgt">
+      <label for="rate-tgt">Voice Rate 読み上げ速度</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate-tgt">
       <div class="rate-value-tgt">1</div>
       <div class="clearfix"></div>
     </div>
     <div>
-      <label for="pitch-tgt">Pitch</label><input type="range" min="0" max="2" value="1" step="0.1" id="pitch-tgt">
+      <label for="pitch-tgt">Voice Pitch 音声の高低</label><input type="range" min="0" max="2" value="1" step="0.1" id="pitch-tgt">
       <div class="pitch-value-tgt">1</div>
       <div class="clearfix"></div>
     </div>
@@ -90,8 +111,8 @@
 
   </form>
 
-  <script src="speech_synth-src.js"></script>
-  <script src="speech_synth-tgt.js"></script>
+  <script src="google-avail-lang-get.js"></script>
+  <script src="speech_synth.js"></script>
   <script src="google-translate-ajax.js"></script>
 </body>
 </html>
