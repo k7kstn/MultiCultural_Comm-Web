@@ -8,7 +8,8 @@
 
 var csvGoogleLangArray = [];
 
-function getCSVFileXHR(url, callback) {
+function getDataXHR(url, callback) {
+// function getCSVFileXHR(url, callback) {
 // function getCSVFileXHR(url) {
     var xhr = new XMLHttpRequest();
     // xhr.onload = function() {
