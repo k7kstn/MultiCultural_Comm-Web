@@ -99,7 +99,8 @@ function populateVoiceList(responseData) {
 }
 
 // populateVoiceList();
-getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
+getDataXHR('google-translate-avail-lang.csv', populateVoiceList);
+// getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
 // populateVoiceList( getCSVFileXHR('google-translate-avail-lang.csv') );
 /************************************************ 
 //  below: for Chrome browser 
@@ -114,7 +115,8 @@ if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !=
 
   setTimeout(function() {
     // speechSynthesis.onvoiceschanged = populateVoiceList;
-    speechSynthesis.onvoiceschanged = getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
+    // speechSynthesis.onvoiceschanged = getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
+    speechSynthesis.onvoiceschanged = getDataXHR('google-translate-avail-lang.csv', populateVoiceList);
   }, 1);
 }
 

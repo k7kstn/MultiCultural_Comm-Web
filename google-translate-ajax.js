@@ -27,6 +27,16 @@ function getSelectGoogleLangCode(idname){
   return langCode;
 
 }
+
+/********************************************
+// Security check : Sanitizing input data
+********************************************/
+function checkInputData(inputData) {
+  if (/&|<|>|"|'/.test(inputData)) { 
+    inputData = inputData.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  return inputData;
+}
  
 
 const xhr = new XMLHttpRequest();
@@ -95,7 +105,8 @@ function translateResponse() {
       console.log('success!', xhr);
       // console.log(dataJSONP);
       // response = JSON.parse(dataJSONP);
-      document.querySelector('textarea.txt-tgt').innerHTML = xhr.responseText;
+      /* put through input data sec check then to HTML */
+      document.querySelector('textarea.txt-tgt').innerHTML = checkInputData(xhr.responseText);
     } else {
       document.querySelector('textarea.txt-tgt').innerHTML = 'Sorry, no Translation response aquired. \n すみません、翻訳システムの応答を得られませんでした。\n\n Also, please make sure that you have chosen different languages for "Select Your Language" and "Select Language to translate to".\n また、「あなたの言語」と「翻訳したい言語」で異なる２つの言語が選択されていることを今一度お確かめください。';
     }
