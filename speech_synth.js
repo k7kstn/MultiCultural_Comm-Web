@@ -117,7 +117,7 @@ if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !=
     // speechSynthesis.onvoiceschanged = populateVoiceList;
     // speechSynthesis.onvoiceschanged = getCSVFileXHR('google-translate-avail-lang.csv', populateVoiceList);
     speechSynthesis.onvoiceschanged = getDataXHR('google-translate-avail-lang.csv', populateVoiceList);
-  }, 1);
+  }, 1000);
 }
 
 function speak(){
